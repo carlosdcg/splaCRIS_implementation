@@ -1,0 +1,484 @@
+<xml version="1.0" encoding="UTF-8" test_number="1" result="OK">
+    <mandatory_feature name="A">
+    	<mandatory_feature name="B">
+			<mandatory_feature name="C">
+ 				<checkmark></checkmark>
+ 			</mandatory_feature> 
+    	</mandatory_feature> 
+    </mandatory_feature>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+
+<xml version="1.0" encoding="UTF-8" test_number="2" result="OK">
+    <optional_feature name="A">
+ 		<mandatory_feature name="B">
+			<optional_feature name="C">
+ 				<checkmark></checkmark>
+			</optional_feature> 
+        </mandatory_feature> 
+    </optional_feature>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'B', 'checkmark']
+2.3
+['checkmark']
+0
+
+<xml version="1.0" encoding="UTF-8" test_number="3" result="OK">
+    <mandatory_feature name="A">
+ 		<optional_feature name="B">
+			<mandatory_feature name="C">
+ 				<checkmark></checkmark>
+			</mandatory_feature> 
+        </optional_feature> 
+    </mandatory_feature>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'checkmark']
+1.0
+
+<xml version="1.0" encoding="UTF-8" test_number="4" result="OK">
+    <optional_feature name="A">
+ 		<optional_feature name="B">
+ 			<optional_feature name="C">
+ 				<checkmark></checkmark>
+			</optional_feature> 
+		</optional_feature> 
+	</optional_feature>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'B', 'checkmark']
+2.3
+['A', 'checkmark']
+1.0
+['checkmark']
+
+<xml version="1.0" encoding="UTF-8" test_number="5" result="OK">
+    <mandatory_feature name="A">
+		<parallel> 
+			<mandatory_feature name="B">
+				<checkmark></checkmark>
+			</mandatory_feature> 
+			<mandatory_feature name="C">
+				<checkmark></checkmark>
+			</mandatory_feature> 
+		</parallel> 
+	</mandatory_feature>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'C', 'B', 'checkmark']
+3.1
+
+<xml version="1.0" encoding="UTF-8" test_number="6" result="OK">
+    <mandatory_feature name="A">
+		<parallel>
+			<mandatory_feature name="B">
+				<choose_1>
+					<mandatory_feature name="C">
+						<checkmark></checkmark>
+					</mandatory_feature>
+					<mandatory_feature name="D">
+						<checkmark></checkmark>
+					</mandatory_feature>
+				</choose_1>				
+			</mandatory_feature>
+			<mandatory_feature name="E">
+				<optional_feature name="F">
+					<checkmark></checkmark>
+				</optional_feature>
+			</mandatory_feature>
+		</parallel>
+    </mandatory_feature>
+</xml>
+['A', 'B', 'E', 'C', 'F', 'checkmark']
+5.3
+['A', 'B', 'E', 'C', 'checkmark']
+4.3
+['A', 'B', 'E', 'D', 'F', 'checkmark']
+5.3
+['A', 'B', 'E', 'D', 'checkmark']
+4.3
+['A', 'B', 'E', 'F', 'C', 'checkmark']
+5.3
+['A', 'B', 'E', 'F', 'D', 'checkmark']
+5.3
+['A', 'B', 'C', 'E', 'F', 'checkmark']
+5.3
+['A', 'B', 'C', 'E', 'checkmark']
+4.3
+['A', 'B', 'D', 'E', 'F', 'checkmark']
+5.3
+['A', 'B', 'D', 'E', 'checkmark']
+4.3
+['A', 'E', 'B', 'F', 'C', 'checkmark']
+5.0
+['A', 'E', 'B', 'F', 'D', 'checkmark']
+5.0
+['A', 'E', 'B', 'C', 'F', 'checkmark']
+5.0
+['A', 'E', 'B', 'C', 'checkmark']
+4.0
+['A', 'E', 'B', 'D', 'F', 'checkmark']
+5.0
+['A', 'E', 'B', 'D', 'checkmark']
+4.0
+['A', 'E', 'F', 'B', 'C', 'checkmark']
+5.0
+['A', 'E', 'F', 'B', 'D', 'checkmark']
+5.0
+
+<xml version="1.0" encoding="UTF-8" test_number="7" result="OK">
+	<parallel>
+    	<mandatory_feature name="A">
+				<checkmark></checkmark>
+    	</mandatory_feature>
+
+		<choose_1> 
+			<mandatory_feature name="b">
+				<checkmark></checkmark>
+			</mandatory_feature> 
+			
+			<parallel>
+				<mandatory_feature name="c">
+					<checkmark></checkmark>
+				</mandatory_feature> 
+				<mandatory_feature name="d">
+					<checkmark></checkmark>
+				</mandatory_feature> 
+			</parallel>
+		</choose_1> 
+	</parallel>
+</xml>
+['A', 'b', 'checkmark']
+2.0
+['A', 'c', 'd', 'checkmark']
+3.0
+['A', 'd', 'c', 'checkmark']
+3.0
+['b', 'A', 'checkmark']
+2.0
+['c', 'A', 'd', 'checkmark']
+3.0
+['c', 'd', 'A', 'checkmark']
+3.0
+['d', 'A', 'c', 'checkmark']
+3.0
+['d', 'c', 'A', 'checkmark']
+3.0
+
+
+<xml version="1.0" encoding="UTF-8" test_number="8" result="OK">
+    <mandatory_feature name="A">
+		<choose_1>
+			<mandatory_feature name="B">
+				<parallel>
+					<mandatory_feature name="C">
+						<checkmark></checkmark>
+					</mandatory_feature>
+					<optional_feature name="D">
+						<checkmark></checkmark>
+					</optional_feature>
+				</parallel>				
+			</mandatory_feature>
+			<mandatory_feature name="E">
+				<optional_feature name="F">
+					<checkmark></checkmark>
+				</optional_feature>
+			</mandatory_feature>
+		</choose_1>
+    </mandatory_feature>
+</xml>
+['A', 'B', 'C', 'D', 'checkmark']
+4.3
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'B', 'D', 'C', 'checkmark']
+4.3
+['A', 'E', 'F', 'checkmark']
+3.0
+['A', 'E', 'checkmark']
+2.0
+
+<xml version="1.0" encoding="UTF-8" test_number="9" result="OK">
+    <mandatory_feature name="A">
+		<choose_1>
+			<mandatory_feature name="B">
+				<checkmark></checkmark>			
+			</mandatory_feature>
+			<parallel>
+					<mandatory_feature name="C">
+						<checkmark></checkmark>
+					</mandatory_feature>
+					<optional_feature name="D">
+						<checkmark></checkmark>
+					</optional_feature>
+			</parallel>	
+		</choose_1>
+    </mandatory_feature>
+</xml>
+['A', 'B', 'checkmark']
+2.3
+['A', 'C', 'D', 'checkmark']
+3.4
+['A', 'C', 'checkmark']
+2.1
+['A', 'D', 'C', 'checkmark']
+3.0
+
+
+
+
+
+
+<xml version="1.0" encoding="UTF-8">
+	<checkmark/>
+</xml>
+['checkmark']
+0
+
+<xml version="1.0" encoding="UTF-8">
+	<parallel>
+		<optional_feature name="F1">1
+			<checkmark></checkmark>
+		</optional_feature>
+	</parallel>
+</xml>
+['F1', 'checkmark']
+1.0
+['checkmark']
+0
+
+
+<xml version="1.0" encoding="UTF-8">
+	<parallel>
+		<optional_feature name="F1">1
+			<parallel>
+				<optional_feature name="F2">1
+					<checkmark></checkmark>
+				</optional_feature>
+			</parallel>
+		</optional_feature>
+	</parallel>
+</xml>
+['F1', 'F2', 'checkmark']
+2.0
+['F1', 'checkmark']
+1.0
+['checkmark']
+0
+
+<xml version="1.0" encoding="UTF-8">
+	<choose_1>
+		<mandatory_feature name="F1">
+			<mandatory_feature name="F2">
+				<checkmark></checkmark>
+			</mandatory_feature>
+		</mandatory_feature>
+		<mandatory_feature name="F3">
+			<mandatory_feature name="F4">
+				<checkmark></checkmark>
+			</mandatory_feature>
+		</mandatory_feature>
+		<mandatory_feature name="F5">
+			<mandatory_feature name="F6">
+				<checkmark></checkmark>
+			</mandatory_feature>
+		</mandatory_feature>
+	</choose_1>
+</xml>
+['F1', 'F2', 'checkmark']
+2.0
+['F3', 'F4', 'checkmark']
+2.0
+['F5', 'F6', 'checkmark']
+2.0
+
+
+
+
+<xml version="1.0" encoding="UTF-8">
+	<parallel>
+		<optional_feature name="F1">
+			<checkmark></checkmark>
+		</optional_feature>
+		<optional_feature name="F2">
+			<checkmark></checkmark>
+		</optional_feature>
+		<optional_feature name="F3">
+			<checkmark></checkmark>
+		</optional_feature>
+		<optional_feature name="F4">
+			<checkmark></checkmark>
+		</optional_feature>
+		<optional_feature name="F5">
+			<checkmark></checkmark>
+		</optional_feature>
+		<optional_feature name="F6">
+			<checkmark></checkmark>
+		</optional_feature>
+	</parallel>
+</xml>
+
+
+
+
+
+
+
+<xml version="1.0" encoding="UTF-8">
+	<mandatory_feature name="A">
+		<choose_1>
+			<mandatory_feature name="B">
+				<checkmark></checkmark>
+			</mandatory_feature>
+			<mandatory_feature name="C">
+				<parallel>
+					<optional_feature name="D">
+						<checkmark></checkmark>
+					</optional_feature>
+					<mandatory_feature name="E">
+						<checkmark></checkmark>
+					</mandatory_feature>
+				</parallel>
+			</mandatory_feature>
+		</choose_1>
+	</mandatory_feature>
+</xml>
+['A', 'B', 'checkmark']
+2.3
+['A', 'C', 'D', 'E', 'checkmark']
+6.15
+['A', 'C', 'E', 'D', 'checkmark']
+4.35
+['A', 'C', 'E', 'checkmark']
+3.1
+
+
+<xml version="1.0" encoding="UTF-8" test_number="1" result="OK">
+	<excludes feature_1="K" feature_2="D">
+		<requires feature_1="K" feature_2="D">
+			<mandatory_feature name="A">
+    			<mandatory_feature name="B">
+					<mandatory_feature name="C">
+ 						<checkmark></checkmark>
+		 			</mandatory_feature> 
+		    	</mandatory_feature> 
+		    </mandatory_feature>
+        </requires>
+    </excludes>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+
+
+<xml version="1.0" encoding="UTF-8" test_number="8" result="OK">
+	<excludes feature_1="A" feature_2="B">
+    <mandatory_feature name="A">
+		<choose_1>
+			<mandatory_feature name="B">
+				<parallel>
+					<mandatory_feature name="C">
+						<checkmark></checkmark>
+					</mandatory_feature>
+					<optional_feature name="D">
+						<checkmark></checkmark>
+					</optional_feature>
+				</parallel>				
+			</mandatory_feature>
+			<mandatory_feature name="E">
+				<optional_feature name="F">
+					<checkmark></checkmark>
+				</optional_feature>
+			</mandatory_feature>
+		</choose_1>
+    </mandatory_feature>
+    </excludes>
+</xml>
+['A', 'E', 'F', 'checkmark']
+3.0
+['A', 'E', 'checkmark']
+2.0
+
+<xml version="1.0" encoding="UTF-8" test_number="10" result="OK">
+	<requires feature_1="B" feature_2="C">
+	    <optional_feature name="A">
+			<choose_1>
+				<optional_feature name="B">
+					<checkmark></checkmark>			
+				</optional_feature>
+				<optional_feature name="C">
+					<checkmark></checkmark>
+				</optional_feature>			
+			</choose_1>
+    	</optional_feature>
+    </requires>
+</xml>
+['A', 'B', 'C', 'checkmark']
+3.3
+['A', 'C', 'checkmark']
+2.1
+['A', 'checkmark']
+1.0
+['checkmark']
+0
+
+#Revisar, version new vs. old....
+<xml version="1.0" encoding="UTF-8" test_number="1" result="OK">
+				<requires feature_1="A" feature_2="D">
+				<excludes feature_1="D" feature_2="A">
+
+				<mandatory_feature name="A">
+    					<choose_1>
+							<mandatory_feature name="C">
+ 								<checkmark></checkmark>
+				 			</mandatory_feature> 
+							<mandatory_feature name="D">
+ 								<checkmark></checkmark>
+				 			</mandatory_feature> 				 			
+    					</choose_1>
+		   	 	</mandatory_feature>
+			</excludes>
+			</requires>
+
+</xml>
+None
+
+
+
+#Revisar, version new, Preguntar al Prof. Luis, puede este término hacer tick sin mas features?
+<xml version="1.0" encoding="UTF-8">
+	<choose_1>
+		<mandatory_feature name="F1">2
+				<optional_feature name="F2">1
+					<checkmark></checkmark>
+				</optional_feature>
+		</mandatory_feature>
+		<mandatory_feature name="F3">1
+			<checkmark></checkmark>
+		</mandatory_feature>
+		<mandatory_feature name="F4">1
+			<checkmark></checkmark>
+		</mandatory_feature>
+		<mandatory_feature name="F5">1
+			<checkmark></checkmark>
+		</mandatory_feature>
+	</choose_1>
+</xml>
+['F1', 'F2', 'checkmark']
+2.0
+['F1', 'checkmark']
+1.0
+['F3', 'checkmark']
+1.0
+['F4', 'checkmark']
+1.0
+['F5', 'checkmark']
+1.0
+
+
+

@@ -1,0 +1,68 @@
+<xml version="1.0" encoding="UTF-8">
+		<requires feature_1="Node1" feature_2="Web">
+			<requires feature_1="Node2" feature_2="DB">
+				<requires feature_1="Prod" feature_2="MySQL">
+					<requires feature_1="Prod" feature_2="Nagios">
+						<excludes feature_1="Web" feature_2="DB">
+							<mandatory_feature name="Chef">
+								<parallel>
+									<mandatory_feature name="Roles">
+										<optional_feature name="Web">
+											<choose_1>
+												<mandatory_feature name="Apache">
+													<checkmark></checkmark>
+												</mandatory_feature>
+												<mandatory_feature name="Nginx">
+													<checkmark></checkmark>
+												</mandatory_feature>
+											</choose_1>
+										</optional_feature>
+										<optional_feature name="DB">
+											<choose_1>
+												<mandatory_feature name="MySQL">
+													<checkmark></checkmark>
+												</mandatory_feature>
+												<mandatory_feature name="SQLServer">
+													<checkmark></checkmark>
+												</mandatory_feature>
+											</choose_1>
+										</optional_feature>
+										<optional_feature name="Monitor">
+											<choose_1>
+												<mandatory_feature name="Nagios">
+													<checkmark></checkmark>
+												</mandatory_feature>
+												<mandatory_feature name="NewRelic">
+													<checkmark></checkmark>
+												</mandatory_feature>
+											</choose_1>
+										</optional_feature>	
+									</mandatory_feature>
+									<mandatory_feature name="Env">
+										<choose_1>
+											<mandatory_feature name="Prod">
+												<checkmark></checkmark>
+											</mandatory_feature>
+											<mandatory_feature name="Test">
+												<checkmark></checkmark>
+											</mandatory_feature>
+										</choose_1>
+									</mandatory_feature>
+									<mandatory_feature name="Nodes">
+										<parallel>
+											<optional_feature name="Node1">
+												<checkmark></checkmark>
+											</optional_feature>
+											<optional_feature name="Node2">
+												<checkmark></checkmark>
+											</optional_feature>
+										</parallel>
+									</mandatory_feature>
+								</parallel>
+							</mandatory_feature>
+						</excludes>
+					</requires>
+    			</requires>
+			</requires>
+    	</requires>
+</xml>
